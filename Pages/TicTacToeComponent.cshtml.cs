@@ -42,6 +42,13 @@ namespace BlazorTicTacToe.Pages
             }
         }
 
+        protected void ResetGame()
+        {
+            CurrentPlayer = 'X';
+            Win = false;
+            Array.Clear(CellValue, 0, CellValue.Length);
+        }
+
         private bool WinningOnStraightLine()
         {
             for (var i = 0; i < 3; i++)
@@ -77,13 +84,6 @@ namespace BlazorTicTacToe.Pages
                    || (CellValue[0, 2] != '\0'
                    && CellValue[0, 2] == CellValue[1, 1]
                    && CellValue[1, 1] == CellValue[2, 0]) ;
-    }
-
-        protected void ResetGame()
-        {
-            CurrentPlayer = 'X';
-            Win = false;
-            Array.Clear(CellValue, 0, CellValue.Length);
         }
     }
 }
